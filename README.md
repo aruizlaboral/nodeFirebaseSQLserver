@@ -3,6 +3,64 @@
 
 Node js witch Firebase for Upload File
 
+## docker con MSSQL
+
+Docker Compose
+
+```bash
+  cd /docker
+  docker-compose up -d
+  docker-compose ps
+  docker-compose top
+
+  docker-compose start
+  docker-compose top
+
+  docker-compose down -v
+```
+
+Docker 
+
+```bash
+  docker pull mcr.microsoft.com/mssql/server
+
+  docker network ls
+  docker network create myred
+
+  docker run --network myred -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=my_password" -e "MSSQL_PID=Express" -p 1433:1433  --name server-sql --hostname host-serversql  -d mcr.microsoft.com/mssql/server:2017-CU1-ubuntu
+
+  #docker run --network myred -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=Adderlin@123" -e "MSSQL_PID=Express" -p 1433:1433 --name server-sql --hostname host-serversql -d mcr.microsoft.com/mssql/server:2019-latest
+
+  #docker run --network myred -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=Adderlin@123" -e "MSSQL_PID=Express" -p 1433:1433 --name server-sql --hostname host-serversql -d mcr.microsoft.com/mssql/server:2019-latest
+
+  #docker run --network myred -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=Adderlin@123" -e "MSSQL_PID=Evaluation" -p 1433:1433  --name sqlpreview --hostname sqlpreview -d mcr.microsoft.com/mssql/server:2022-preview-ubuntu-22.04
+
+  docker exec -it server-sql /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P my_password
+```
+Comandos 
+
+```bash
+  create database prueba01
+  1> create database prueba01
+  2> go
+  ---------
+  1> use prueba01
+  2> go
+  Changed database context to 'prueba01'.
+  ----------
+  1> create table table1
+  2> (
+  3> column1 int
+  4> )
+  5> go
+  --------
+  1> insert into table1 values (20)
+  2> go
+  -------
+  1> select * from table1
+  2> go
+```
+
 ## Crear sdk firebase
 Descargar y guardar como: delivery-b9284-firebase
 
